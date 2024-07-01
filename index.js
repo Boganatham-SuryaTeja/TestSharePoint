@@ -16,10 +16,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post('/', (req, res) => {
   // Extract validationToken from query parameters
   const validationToken = req.query.validationToken;
-  
+  console.log('Received body:', req.body);
   if (validationToken) {
     // Respond with validation token as plain text
-    console.log('Received body:', req.body);
     res.set('Content-Type', 'text/plain');
     res.send(validationToken);
 } else {
