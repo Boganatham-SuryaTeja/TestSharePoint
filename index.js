@@ -19,7 +19,7 @@ app.post('/', (req, res) => {
   const resourceDataString = req.body.value[0].resourceData;
     console.log('Received body:', req.body);
     console.log();
-    console.log('Parsed body:', resourceDataString);
+   console.log('Stringified Object:', JSON.stringify(resourceDataString, null, 2));
   const validationToken = req.query.validationToken;
   if (validationToken) {
     // Respond with validation token as plain text
