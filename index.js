@@ -17,17 +17,11 @@ app.post('/', (req, res) => {
   // Extract validationToken from query parameters
   console.log(req.body)
   const resourceDataString = req.body.value[0].resourceData;
-    const parsedResourceData = JSON.parse(resourceDataString);
     console.log('Received body:', req.body);
     console.log();
-    console.log('Parsed body:', parsedResourceData);
+    console.log('Parsed body:', resourceDataString);
   const validationToken = req.query.validationToken;
   if (validationToken) {
-    const resourceDataString = req.body.value[0].resourceData;
-    const parsedResourceData = JSON.parse(resourceDataString);
-    console.log('Received body:', req.body);
-    console.log();
-    console.log('Parsed body:', parsedResourceData);
     // Respond with validation token as plain text
     res.set('Content-Type', 'text/plain');
     res.send(validationToken);
