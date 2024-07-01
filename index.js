@@ -15,6 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Route to handle incoming notifications and validation requests
 app.post('/', (req, res) => {
   // Extract validationToken from query parameters
+  console.log(req.body)
   const validationToken = req.query.validationToken;
   if (validationToken) {
     const resourceDataString = req.body.value[0].resourceData;
