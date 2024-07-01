@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+
 const app = express();
 const port = 3001;
 
@@ -9,6 +10,21 @@ app.use(bodyParser.json());
 
 // Parse application/x-www-form-urlencoded requests
 app.use(bodyParser.urlencoded({ extended: true }));
+
+
+// Route to handle incoming notifications and validation requests
+app.post('/', (req, res) => {
+  // Extract validationToken from query parameters
+  const validationToken = req.query.validationToken;
+  
+  if (validationToken) {
+      // Respond with validation token
+      res.json({ validationToken });
+  } else {
+      // Handle other notifications or events as needed
+      res.json({ message: 'Notification received' });
+  }
+});
 
 // GET request example
 app.get('/api/get', (req, res) => {
