@@ -19,6 +19,7 @@ app.post('/', (req, res) => {
   
   if (validationToken) {
     // Respond with validation token as plain text
+    console.log('Received body:', req.body);
     res.set('Content-Type', 'text/plain');
     res.send(validationToken);
 } else {
