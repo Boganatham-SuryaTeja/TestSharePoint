@@ -18,12 +18,14 @@ app.post('/', (req, res) => {
   const validationToken = req.query.validationToken;
   
   if (validationToken) {
-      // Respond with validation token
-      res.json({ validationToken });
-  } else {
-      // Handle other notifications or events as needed
-      res.json({ message: 'Notification received' });
-  }
+    // Respond with validation token as plain text
+    res.set('Content-Type', 'text/plain');
+    res.send(validationToken);
+} else {
+    // Handle other notifications or events as needed
+    res.set('Content-Type', 'text/plain');
+    res.send('Notification received');
+}
 });
 
 // GET request example
