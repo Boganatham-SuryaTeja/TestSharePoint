@@ -16,6 +16,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post('/', (req, res) => {
   // Extract validationToken from query parameters
   console.log(req.body)
+  const resourceDataString = req.body.value[0].resourceData;
+    const parsedResourceData = JSON.parse(resourceDataString);
+    console.log('Received body:', req.body);
+    console.log();
+    console.log('Parsed body:', parsedResourceData);
   const validationToken = req.query.validationToken;
   if (validationToken) {
     const resourceDataString = req.body.value[0].resourceData;
